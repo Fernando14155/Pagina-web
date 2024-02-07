@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FallenAngels</title>
+    <style>
+        body {
+            background-image: url('');
+            font-family: Arial, sans-serif; /* Tipo de letra por defecto */
+            margin: 0;
+            padding: 0;
+            background-size: 100%; /* Cubrir todo el fondo */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            background-position: center; /* Posicionar la imagen en el centro */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: auto; /* Habilitar el desplazamiento */
+        }
+
+        #top-section {
+            background-color: #333;
+            width: 100%;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-img img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+
+        .center-text, .right-text {
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: black; /* Color de texto por defecto */
+            position: relative; /* Añadido */
+        }
+
+        .center-text {
+            background-color: #ff6347; /* Color de fondo para los enlaces del centro */
+        }
+
+        .right-text {
+            background-color: #ffa500; /* Color de fondo para el enlace de la parte superior derecha */
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: transparent; /* Fondo transparente */
+            border: none; /* Borde transparente */
+        }
+
+        .main-content .center-text {
+            background-color: transparent; /* Fondo transparente */
+            border: none; /* Borde transparente */
+            color: black; /* Color de texto */
+        }
+
+        /* Modo Oscuro */
+        body.dark-mode {
+            background-color: #000;
+        }
+
+        body.dark-mode .center-text,
+        body.dark-mode .right-text,
+        body.dark-mode .dropdown-list { /* Aplicar color blanco al texto en modo oscuro */
+            color: white;
+        }
+
+        /* Cambiar el tipo de letra */
+        body {
+            font-family: "Arial Black", Arial, sans-serif; /* Cambia "Arial" por el nombre de la fuente deseada */
+        }
+
+        /* Lista desplegable */
+        .dropdown-list {
+            position: absolute;
+            background-color: #fff; /* Fondo de la lista desplegable en modo claro */
+            padding: 10px;
+            z-index: 1;
+            display: none;
+            top: 100%; /* Añadido */
+            left: 0; /* Añadido */
+            width: 150px; /* Añadido */
+        }
+
+        .center-text .dropdown-list { /* Ajustado */
+            display: none;
+        }
+
+        .center-text.clicked .dropdown-list { /* Añadido */
+            display: block;
+        }
+
+        /* Estilos específicos para la tabla "Ranking Page" */
+        #ranking-table-container table {
+            width: 100%;
+            border-spacing: 0;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            font-size: 14px; /* Tamaño de fuente más pequeño */
+        }
+
+        #ranking-table-container th, #ranking-table-container td {
+            border: 1px solid #ddd;
+            padding: 30px; /* Ajuste del espacio interno */
+            text-align: left;
+        }
+
+        #ranking-table-container th {
+            background-color: #f2f2f2;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        #ranking-table-container td {
+            background-color: #fff;
+            color: #333;
+        }
+
+        #ranking-table-container tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Estilos para los botones */
+        #ranking-table-container .btn {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 6px 12px; /* Ajuste del espacio interno */
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px; /* Tamaño de fuente más pequeño */
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        #ranking-table-container .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilos de la tabla en modo oscuro */
+        body.dark-mode #ranking-table-container th {
+            background-color: #444; /* Color de fondo para las celdas del encabezado en modo oscuro */
+            color: #fff; /* Color de texto para las celdas del encabezado en modo oscuro */
+        }
+
+        body.dark-mode #ranking-table-container td {
+            background-color: #666; /* Color de fondo para las celdas de datos en modo oscuro */
+            color: #fff; /* Color de texto para las celdas de datos en modo oscuro */
+        }
+    </style>
+</head>
+<body>
+
+<div id="top-section">
+    <a href="#" class="header-img" onclick="toggleTheme()"><img src="https://imgs.search.brave.com/Q0gcd3F6Cs7yFg8G0UatSdJfjSWyoM8BOuGj73RUPAA/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jZG4t/MC5lbW9qaXMud2lr/aS9lbW9qaS1waWNz/L29wZW5tb2ppL3dh/bmluZy1jcmVzY2Vu/dC1tb29uLW9wZW5t/b2ppLnBuZw" alt="🌕"></a>
+    <a href="pagina2.html" class="center-text">ƑąӀӀҽղ ȺղցҽӀʂ</a>
+    <a href="https://tienda.fallenangels.network/" class="right-text">Tienda</a>
+</div>
+<div class="main-content">
+    <a href="#" class="center-text" onclick="handleClick('pagina2.html')">INICIO</a>
+    <a href="#" class="center-text" onclick="handleClick('pagina1.html')" style="margin-left: 100px;">Modalidades</a>
+    <a href="#" class="center-text" onclick="handleClick('https://tienda.fallenangels.network/')" style="margin-left: 100px;">TIENDA</a>
+    <a href="#" class="center-text" onclick="handleClick('pagina5.html')" style="margin-left: 100px;">STAFF</a>
+    <a href="#" class="center-text" onclick="toggleDropdown(this)" style="margin-left: 100px;">SOPORTE
+        <div class="dropdown-list">
+            <div>Discord</div>
+            <div>Redes</div>
+        </div>
+    </a>
+</div>
+<h1>Ranking Page</h1>
+<div id="ranking-table-container"> <!-- Contenedor específico para la tabla "Ranking Page" -->
+    <table id="ranking-table">
+        <thead>
+        <tr>
+            <th>Top</th>
+            <th></th> <!-- Espacio vacío para la imagen -->
+            <th>Username</th>
+            <th>↑ ↓ Kills</th>
+            <th>↑ ↓ Deaths</th>
+            <th>↑ ↓ Rating</th>
+            <th>View</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <img src="https://i.imgur.com/sWjsyGf.png" alt="Descripción de la imagen" width="29" height="29">
+            </td>
+            <td>
+                <!-- Imagen en la celda vacía -->
+                <img src="https://i.imgur.com/cwUbrjC.png" alt="Descripción de la imagen" width="50" height="50">
+            </td>
+            <td><?php echo obtenerNombreJugador(); ?></td>
+            <td><?php echo obtenerKills(); ?></td>
+            <td><?php echo obtenerDeaths(); ?></td>
+            <td><?php echo obtenerRating(); ?></td>
+            <td><button class="btn">View</button></td>
+        </tr>
+
+        <!-- Agrega más filas según sea necesario -->
+
+        </tbody>
+    </table>
+</div>
+<div id="player-names-table-container"> <!-- Contenedor específico para la tabla de nombres de jugadores -->
+    <table id="player-names-table">
+        <thead>
+        <tr>
+            <th>Username</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Las filas de la tabla se llenarán dinámicamente mediante JavaScript -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+    // Función para cambiar la tabla de acuerdo a la columna seleccionada
+    function changeTable(column) {
+        // Aquí puedes cambiar la tabla de abajo según la columna seleccionada
+        // Por ahora, solo vamos a mostrar un mensaje de prueba
+        alert('Cambiando a la tabla de ' + column);
+    }
+
+    let isDarkMode = false; // Inicialmente, el modo oscuro está desactivado
+
+    function toggleTheme() {
+        isDarkMode = !isDarkMode;
+        document.body.classList.toggle('dark-mode', isDarkMode); // Alternar la clase dark-mode en el body
+    }
+
+    // Realiza una solicitud HTTP al servidor de Minecraft para obtener los nombres de los jugadores
+    fetch('/jugadores')
+        .then(response => response.json()) // Convierte la respuesta a JSON
+        .then(data => {
+            // Una vez que se reciban los nombres de los jugadores, actualiza la tabla HTML
+            const playerNamesTable = document.getElementById('player-names-table').getElementsByTagName('tbody')[0];
+            data.forEach(name => {
+                const row = playerNamesTable.insertRow(); // Inserta una nueva fila en la tabla
+                const cell = row.insertCell(); // Inserta una celda en la fila
+                cell.textContent = name; // Agrega el nombre del jugador a la celda
+            });
+        })
+        .catch(error => console.error('Error al obtener los nombres de los jugadores:', error));
+</script>
+
+</body>
+</html>

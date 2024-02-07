@@ -1,0 +1,34 @@
+name: PuntosClan
+version: '${project.version}'
+main: org.puntosclan.PuntosClan
+api-version: '1.20'
+commands:
+  skywars:
+    description: Gestiona los puntos de Skywars.
+    usage: /skywars <subcomando>
+    aliases: [sw]
+    subcommands:
+      puntos:
+        description: Gestiona los puntos de Skywars.
+        usage: /skywars puntos <win|kills> <jugador>
+  eggwars:
+    description: Gestiona los puntos de Eggwars.
+    usage: /eggwars <subcomando>
+    subcommands:
+      puntos:
+        description: Gestiona los puntos de Eggwars.
+        usage: /eggwars puntos <jugador>
+  uhhrun:
+    description: Gestiona los puntos de UHHRUN.
+    usage: /uhhrun <subcomando>
+    subcommands:
+      puntos:
+        description: Gestiona los puntos de UHHRUN.
+        usage: /uhhrun puntos <jugador>
+  partygames:
+    description: Gestiona los puntos de PartyGames.
+    usage: /partygames <subcomando>
+    subcommands:
+      puntos:
+        description: Gestiona los puntos de PartyGames.
+        usage: /partygames puntos <jugador>
