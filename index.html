@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FallenAngels</title>
+  <style>
+        body {
+            background-image: url('');
+            font-family: Arial, sans-serif; /* Tipo de letra por defecto */
+            margin: 0;
+            padding: 0;
+            background-size: 100%; /* Cubrir todo el fondo */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            background-position: center; /* Posicionar la imagen en el centro */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: auto; /* Habilitar el desplazamiento */
+        }
+
+        #top-section {
+            background-color: #333;
+            width: 100%;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-img img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+
+        .center-text, .right-text {
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: black; /* Color de texto por defecto */
+            position: relative; /* Añadido */
+        }
+
+        .center-text {
+            background-color: #ff6347; /* Color de fondo para los enlaces del centro */
+        }
+
+        .right-text {
+            background-color: #ffa500; /* Color de fondo para el enlace de la parte superior derecha */
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: transparent; /* Fondo transparente */
+            border: none; /* Borde transparente */
+        }
+
+        .main-content .center-text {
+            background-color: transparent; /* Fondo transparente */
+            border: none; /* Borde transparente */
+            color: black; /* Color de texto */
+        }
+
+        /* Modo Oscuro */
+        body.dark-mode {
+            background-color: #000;
+        }
+
+        body.dark-mode .center-text,
+        body.dark-mode .right-text,
+        body.dark-mode .dropdown-list { /* Aplicar color blanco al texto en modo oscuro */
+            color: white;
+        }
+
+        /* Cambiar el tipo de letra */
+        body {
+            font-family: "Arial Black", Arial, sans-serif; /* Cambia "Arial" por el nombre de la fuente deseada */
+        }
+
+        /* Lista desplegable */
+        .dropdown-list {
+            position: absolute;
+            background-color: #fff; /* Fondo de la lista desplegable en modo claro */
+            padding: 10px;
+            z-index: 1;
+            display: none;
+            top: 100%; /* Añadido */
+            left: 0; /* Añadido */
+            width: 150px; /* Añadido */
+        }
+
+        .center-text .dropdown-list { /* Ajustado */
+            display: none;
+        }
+
+        .center-text.clicked .dropdown-list { /* Añadido */
+            display: block;
+        }
+    </style>
+
+  <title>Ranking Page</title>
+  <style>
+        /* Estilos específicos para la tabla "Ranking Page" */
+        #ranking-table-container table {
+            width: 100%;
+            border-spacing: 0;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            font-size: 14px; /* Tamaño de fuente más pequeño */
+        }
+
+        #ranking-table-container th, #ranking-table-container td {
+            border: 1px solid #ddd;
+            padding: 30px; /* Ajuste del espacio interno */
+            text-align: left;
+        }
+
+        #ranking-table-container th {
+            background-color: #f2f2f2;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        #ranking-table-container td {
+            background-color: #fff;
+            color: #333;
+        }
+
+        #ranking-table-container tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Estilos para los botones */
+        #ranking-table-container .btn {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 6px 12px; /* Ajuste del espacio interno */
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px; /* Tamaño de fuente más pequeño */
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        #ranking-table-container .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilos de la tabla en modo oscuro */
+        body.dark-mode #ranking-table-container th {
+            background-color: #444; /* Color de fondo para las celdas del encabezado en modo oscuro */
+            color: #fff; /* Color de texto para las celdas del encabezado en modo oscuro */
+        }
+
+        body.dark-mode #ranking-table-container td {
+            background-color: #666; /* Color de fondo para las celdas de datos en modo oscuro */
+            color: #fff; /* Color de texto para las celdas de datos en modo oscuro */
+        }
+    </style>
+  <title>Ranking Page</title>
+  <style>
+        /* Estilos específicos para la tabla "Ranking Page" */
+        #ranking-table-container table {
+            width: 100%;
+            border-spacing: 0;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            font-size: 14px; /* Tamaño de fuente más pequeño */
+        }
+
+        #ranking-table-container th, #ranking-table-container td {
+            border: 1px solid #ddd;
+            padding: 30px; /* Ajuste del espacio interno */
+            text-align: left;
+        }
+
+        #ranking-table-container th {
+            background-color: #f2f2f2;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        #ranking-table-container td {
+            background-color: #fff;
+            color: #333;
+        }
+
+        #ranking-table-container tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Estilos para los botones */
+        #ranking-table-container .btn {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 6px 12px; /* Ajuste del espacio interno */
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px; /* Tamaño de fuente más pequeño */
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        #ranking-table-container .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilos de la tabla en modo oscuro */
+        body.dark-mode #ranking-table-container th {
+            background-color: #444; /* Color de fondo para las celdas del encabezado en modo oscuro */
+            color: #fff; /* Color de texto para las celdas del encabezado en modo oscuro */
+        }
+
+        body.dark-mode #ranking-table-container td {
+            background-color: #666; /* Color de fondo para las celdas de datos en modo oscuro */
+            color: #fff; /* Color de texto para las celdas de datos en modo oscuro */
+        }
+        </style>
+  <title>Ranking Page2</title>
+  <style>
+        /* Estilos específicos para la tabla "Ranking Page" */
+        #otra-tabla table {
+            width: 100%;
+            border-spacing: 0;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            font-size: 14px; /* Tamaño de fuente más pequeño */
+        }
+
+        #otra-tabla th, #ranking-table-container td {
+            border: 1px solid #ddd;
+            padding: 30px; /* Ajuste del espacio interno */
+            text-align: left;
+        }
+
+        #otra-tabla th {
+            background-color: #f2f2f2;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        #otra-tabla td {
+            background-color: #fff;
+            color: #333;
+        }
+
+        #otra-tabla tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Estilos para los botones */
+        #otra-tabla .btn {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 6px 12px; /* Ajuste del espacio interno */
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px; /* Tamaño de fuente más pequeño */
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        #otra-tabla .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilos de la tabla en modo oscuro */
+        body.dark-mode #otra-tabla th {
+            background-color: #444; /* Color de fondo para las celdas del encabezado en modo oscuro */
+            color: #fff; /* Color de texto para las celdas del encabezado en modo oscuro */
+        }
+
+        body.dark-mode #otra-tabla td {
+            background-color: #666; /* Color de fondo para las celdas de datos en modo oscuro */
+            color: #fff; /* Color de texto para las celdas de datos en modo oscuro */
+        }
+    </style>
+</head>
+<body>
+
+<div id="top-section">
+  <a href="#" class="header-img" onclick="toggleTheme()"><img src="https://imgs.search.brave.com/Q0gcd3F6Cs7yFg8G0UatSdJfjSWyoM8BOuGj73RUPAA/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jZG4t/MC5lbW9qaXMud2lr/aS9lbW9qaS1waWNz/L29wZW5tb2ppL3dh/bmluZy1jcmVzY2Vu/dC1tb29uLW9wZW5t/b2ppLnBuZw" alt="🌕"></a>
+  <a href="pagina2.html" class="center-text">ƑąӀӀҽղ ȺղցҽӀʂ</a>
+  <a href="https://tienda.fallenangels.network/" class="right-text">Tienda</a>
+</div>
+<div class="main-content">
+  <a href="#" class="center-text" onclick="handleClick('pagina2.html')">INICIO</a>
+  <a href="#" class="center-text" onclick="handleClick('pagina1.html')" style="margin-left: 100px;">Modalidades</a>
+  <a href="#" class="center-text" onclick="handleClick('https://tienda.fallenangels.network/')" style="margin-left: 100px;">TIENDA</a>
+  <a href="#" class="center-text" onclick="handleClick('pagina5.html')" style="margin-left: 100px;">STAFF</a>
+  <a href="#" class="center-text" onclick="toggleDropdown(this)" style="margin-left: 100px;">SOPORTE
+    <div class="dropdown-list">
+      <div>Discord</div>
+      <div>Redes</div>
+    </div>
+  </a>
+</div>
+<h1>〘⚡〙𝑨𝒏𝒈𝒆𝒍𝒆𝒔</h1>
+<div class="Tabla">
+  <a href="#" class="center-text" onclick="handleClick('pagina2.html')" style="margin-left: 10px;">EggWars</a>
+  <a href="#" class="center-text" onclick="handleClick('pagina1.html')" style="margin-left: 10px;">Pvp</a>
+  <a href="#" class="center-text" onclick="handleClick('https://tienda.fallenangels.network/')" style="margin-left: 10px;">SkyWars</a>
+  <a href="#" class="center-text" onclick="handleClick('pagina5.html')" style="margin-left: 10px;">UHC</a>
+  <a href="#" class="center-text" onclick="handleClick('pagina5.html')" style="margin-left: 10px;">Lucky Islands</a>
+  <a href="#" class="center-text" onclick="handleClick('pagina5.html')" style="margin-left: 10px;">Arcade</a>
+  <a href="#" class="center-text" onclick="handleClick('pagina5.html')" style="margin-left: 10px;">Bingo</a>
+  </a>
+</div>
+
+</div>
+<div style="margin-top: 30px;"></div> <!-- Espacio vacío -->
+<div id="ranking-table-container"> <!-- Contenedor específico para la tabla "Ranking Page" -->
+  <table id="ranking-table">
+    <thead>
+    <tr>
+      <th>Top</th>
+      <th></th> <!-- Espacio vacío para la imagen -->
+      <th>Username</th>
+      <th>↑ ↓ Kills</th>
+      <th>↑ ↓ Deaths</th>
+      <th>↑ ↓ Rating</th>
+      <th>View</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <img src="https://i.imgur.com/sWjsyGf.png" alt="Descripción de la imagen" width="29" height="29">
+      </td>
+      <td>
+        <!-- Imagen en la celda vacía -->
+        <img src="https://i.imgur.com/hTAKAi8.png" alt="Descripción de la imagen" width="50" height="50">
+      </td>
+      <td>PugaBboyFA</td>
+      <td>13</td>
+      <td>7</td>
+      <td>18</td>
+      <td><button class="btn">View</button></td>
+    </tr>
+    <!-- Agrega más filas según sea necesario -->
+    <tr>
+      <td>
+        <img src="https://i.imgur.com/fy8g2sI.png" alt="Descripción de la imagen" width="29" height="29">
+      </td>
+      <td>
+        <!-- Imagen en la celda vacía -->
+        <img src="https://i.imgur.com/g6nwVOf.png" alt="Descripción de la imagen" width="50" height="50">
+      </td>
+      <td>LyzerFA</td>
+      <td>16</td>
+      <td>5</td>
+      <td>10</td>
+      <td><button class="btn">View</button></td>
+    </tr>
+    <tr>
+      <td>
+        <img src="https://i.imgur.com/4cQkqOo.png" alt="Descripción de la imagen" width="29" height="29">
+      </td>
+      <td>
+        <!-- Imagen en la celda vacía -->
+        <img src="https://i.imgur.com/oW7oVAO.png" alt="Descripción de la imagen" width="50" height="50">
+      </td>
+      <td>FeryzFA</td>
+      <td>3</td>
+      <td>18</td>
+      <td>14</td>
+      <td><button class="btn">View</button></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>
+        <!-- Imagen en la celda vacía -->
+        <img src="https://i.imgur.com/Bx7fQt6.png" alt="Descripción de la imagen" width="50" height="50">
+      </td>
+      <td>YosueFA</td>
+      <td>9</td>
+      <td>2</td>
+      <td>17</td>
+      <td><button class="btn">View</button></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>
+        <!-- Imagen en la celda vacía -->
+        <img src="https://i.imgur.com/42cAoVj.png" alt="Descripción de la imagen" width="50" height="50">
+      </td>
+      <td>PekkausaFA</td>
+      <td>6</td>
+      <td>12</td>
+      <td>1</td>
+      <td><button class="btn">View</button></td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>
+        <!-- Imagen en la celda vacía -->
+        <img src="https://i.imgur.com/l1kZZ50.png" alt="Descripción de la imagen" width="50" height="50">
+      </td>
+      <td>JampixFA</td>
+      <td>11</td>
+      <td>8</td>
+      <td>19</td>
+      <td><button class="btn">View</button></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>
+        <!-- Imagen en la celda vacía -->
+        <img src="https://i.imgur.com/ZQjsqan.png" alt="Descripción de la imagen" width="50" height="50">
+      </td>
+      <td>AntonyKmakFA</td>
+      <td>4</td>
+      <td>15</td>
+      <td>7</td>
+      <td><button class="btn">View</button></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>
+        <!-- Imagen en la celda vacía -->
+        <img src="https://i.imgur.com/XIuH3N4.png" alt="Descripción de la imagen" width="50" height="50">
+      </td>
+      <td>HappyFA</td>
+      <td>20</td>
+      <td>13</td>
+      <td>10</td>
+      <td><button class="btn">View</button></td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>
+        <!-- Imagen en la celda vacía -->
+        <img src="https://i.imgur.com/bLBX1Db.png" alt="Descripción de la imagen" width="50" height="50">
+      </td>
+      <td>TruenoFA</td>
+      <td>2</td>
+      <td>16</td>
+      <td>3</td>
+      <td><button class="btn">View</button></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>
+        <!-- Imagen en la celda vacía -->
+        <img src="https://i.imgur.com/GDxzPsC.png" alt="Descripción de la imagen" width="50" height="50">
+      </td>
+      <td>WithoutSenseFA</td>
+      <td>18</td>
+      <td>5</td>
+      <td>9</td>
+      <td><button class="btn">View</button></td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>
+        <!-- Imagen en la celda vacía -->
+        <img src="https://i.imgur.com/8TzhbUt.png" alt="Descripción de la imagen" width="50" height="50">
+      </td>
+      <td>AletZFA</td>
+      <td>7</td>
+      <td>14</td>
+      <td>1</td>
+      <td><button class="btn">View</button></td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>
+        <!-- Imagen en la celda vacía -->
+        <img src="https://i.imgur.com/gXG3m15.png" alt="Descripción de la imagen" width="50" height="50">
+      </td>
+      <td>BeyondFA</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td><button class="btn">View</button></td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>
+        <!-- Imagen en la celda vacía -->
+        <img src="https://i.imgur.com/ZGMdooJ.png" alt="Descripción de la imagen" width="50" height="50">
+      </td>
+      <td>ArrozChauFA</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td><button class="btn">View</button></td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>
+        <!-- Imagen en la celda vacía -->
+        <img src="https://i.imgur.com/HeycOeD.png" alt="Descripción de la imagen" width="50" height="50">
+      </td>
+      <td>BaneoFA</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td><button class="btn">View</button></td>
+
+    </tbody>
+  </table>
+</div>
+
+<!-- Contenedor para la paginación -->
+<div class="pagination-container">
+  <button class="prev-btn" onclick="prevPage()">Prev</button> <!-- Botón para la página anterior -->
+  <div class="page-links"></div> <!-- Aquí se mostrarán los números de página -->
+  <button class="next-btn" onclick="nextPage()">Next</button> <!-- Botón para la página siguiente -->
+</div>
+<div style="margin-top: 40px;"></div> <!-- Espacio vacío -->
+<div id="otra-tabla" style="display: none;"> <!-- Inicialmente oculta -->
+  <table id="ranking-table-2">
+    <thead>
+    <tr>
+      <th>Top</th>
+      <th></th> <!-- Espacio vacío para la imagen -->
+      <th>Username</th>
+      <th>↑ ↓ Kills</th>
+      <th>↑ ↓ Deaths</th>
+      <th>↑ ↓ Eggs</th>
+      <th>View</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <img src="https://i.imgur.com/sWjsyGf.png" alt="Descripción de la imagen" width="29" height="29">
+      </td>
+      <td>
+        <!-- Imagen en la celda vacía -->
+        <img src="https://i.imgur.com/hTAKAi8.png" alt="Descripción de la imagen" width="50" height="50">
+      </td>
+      <td>PugaBboyFA</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td><button class="btn">View</button></td>
+    </tr>
+    <!-- Agrega más filas según sea necesario -->
+    </tbody>
+  </table>
+</div>
+<!-- Estilos para la paginación -->
+<style>
+    .pagination-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1rem;
+    }
+
+    .prev-btn,
+    .next-btn,
+    .page-link {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+        color: #000; /* Color del texto para el modo claro */
+    }
+
+    .page-link.active {
+        font-weight: bold;
+    }
+
+    /* Estilos para el modo oscuro */
+    body.dark-mode .prev-btn,
+    body.dark-mode .next-btn,
+    body.dark-mode .page-link {
+        color: #fff; /* Color del texto para el modo oscuro */
+    }
+</style>
+
+<script>
+    function handleClick() {
+        // Ocultar la tabla actual
+        document.getElementById('ranking-table-container').style.display = 'none';
+
+        // Mostrar la otra tabla o realizar otras acciones según sea necesario
+        document.getElementById('otra-tabla').style.display = 'block';
+    }
+
+    // Definir el número máximo de elementos por página
+    var itemsPerPage = 10;
+    // Obtener el número total de elementos
+    var totalItems = document.getElementById("ranking-table").rows.length - 1; // Restar 1 para excluir la fila de encabezado
+
+    // Calcular el número total de páginas
+    var totalPages = Math.ceil(totalItems / itemsPerPage);
+
+    // Función para generar los números de página y mostrarlos
+    function generatePageLinks() {
+        var pageLinks = document.querySelector(".page-links");
+        pageLinks.innerHTML = ""; // Limpiar los enlaces de página existentes
+
+        for (var i = 1; i <= totalPages; i++) {
+            var pageLink = document.createElement("button");
+            pageLink.textContent = i;
+            pageLink.className = "page-link";
+            pageLink.onclick = function () {
+                goToPage(parseInt(this.textContent));
+            };
+            pageLinks.appendChild(pageLink);
+        }
+    }
+
+    // Mostrar solo los elementos de la página actual y ocultar los demás
+    function showItemsForPage(pageNumber) {
+        var tableRows = document.getElementById("ranking-table").rows;
+        var startIndex = (pageNumber - 1) * itemsPerPage + 1; // Calcular el índice de inicio para la página actual
+        var endIndex = Math.min(startIndex + itemsPerPage - 1, totalItems); // Calcular el índice final para la página actual
+
+        for (var i = 1; i <= totalItems; i++) {
+            if (i >= startIndex && i <= endIndex) {
+                tableRows[i].style.display = "table-row";
+            } else {
+                tableRows[i].style.display = "none";
+            }
+        }
+    }
+
+    // Función para ir a una página específica
+    function goToPage(pageNumber) {
+        // Marcar el enlace de página activo y mostrar los elementos de esa página
+        var pageLinks = document.querySelectorAll(".page-link");
+        pageLinks.forEach(function (link) {
+            link.classList.remove("active");
+        });
+        pageLinks[pageNumber - 1].classList.add("active");
+        showItemsForPage(pageNumber);
+    }
+
+    // Función para ir a la página anterior
+    function prevPage() {
+        var currentPage = document.querySelector(".page-link.active");
+        if (currentPage.textContent !== "1") {
+            goToPage(parseInt(currentPage.textContent) - 1);
+        }
+    }
+
+    // Función para ir a la página siguiente
+    function nextPage() {
+        var currentPage = document.querySelector(".page-link.active");
+        if (currentPage.textContent !== totalPages.toString()) {
+            goToPage(parseInt(currentPage.textContent) + 1);
+        }
+    }
+
+    // Generar los enlaces de página al cargar la página
+    window.onload = function () {
+        generatePageLinks();
+        goToPage(1); // Ir a la primera página por defecto
+    };
+
+    // Función para cambiar entre el modo claro y oscuro
+    function toggleDarkMode() {
+        document.body.classList.toggle("dark-mode");
+    }
+    let isDarkMode = false; // Inicialmente, el modo oscuro está desactivado
+
+    function toggleTheme() {
+        isDarkMode = !isDarkMode;
+        document.body.classList.toggle('dark-mode', isDarkMode); // Alternar la clase dark-mode en el body
+    }
+</script>
+
+</body>
+</html>
